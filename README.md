@@ -129,8 +129,6 @@ Siga estas instruções para ter uma cópia do projeto rodando na sua máquina l
     git clone [https://github.com/richardcustodio](https://github.com/richardcustodio)
     ```
 
-    (Substitua `SeuUsuario/seu-portfolio.git` pela URL real do seu repositório)
-
 2.  **Navegue até o diretório do projeto:**
 
     ```bash
