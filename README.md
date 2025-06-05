@@ -52,37 +52,69 @@ Este projeto foi construído utilizando um _stack_ moderno e eficiente:
 A organização do código foi pensada para facilitar a manutenção e escalabilidade, seguindo um padrão de componentes reutilizáveis:
 
 📂 portfolio/
+
 ├── 📂 public/
+
 │ ├── images/
+
 │ └── assets/
+
 │ ├── backend/
+
 ├── 📂 src/
+
 │ ├── 📂 components/ (Componentes reutilizáveis da interface do usuário)
+
 │ │ ├── Navbar/
+
 │ │ ├── Hero/
+
 │ │ ├── About/
+
 │ │ ├── Education/
+
 │ │ ├── Skills/
+
 │ │ ├── Projects/
+
 │ │ ├── Contact/
+
 │ │ ├── Footer/
+
 │ │ └── ThemeToggle/
+
 │ ├── 📂 hooks/ (Hooks personalizados do React)
+
 │ │ └── useTheme.js
+
 │ ├── 📂 styles/ (Estilos CSS globais e temas)
+
 │ │ ├── global.css
+
 │ │ └── themes.css
+
 │ ├── 📂 utils/ (Funções auxiliares e constantes)
+
 │ │ ├── helpers.js
+
 │ │ └── constants.js
+
 │ ├── 📂 pages/ (Páginas principais)
+
 │ │ └── Home.jsx
+
 │ ├── App.jsx (Componente raiz da aplicação)
+
 │ └── main.jsx (Ponto de entrada da aplicação React com Vite)
+
 ├── .eslintrc.js
+
 ├── .prettierrc.js
+
 ├── package.json
+
 ├── vite.config.js
+
 └── README.md
 
 ---
@@ -94,7 +126,7 @@ Siga estas instruções para ter uma cópia do projeto rodando na sua máquina l
 1.  **Clone o repositório:**
 
     ```bash
-    git clone [https://github.com/SeuUsuario/seu-portfolio.git](https://github.com/SeuUsuario/seu-portfolio.git)
+    git clone [https://github.com/richardcustodio](https://github.com/richardcustodio)
     ```
 
     (Substitua `SeuUsuario/seu-portfolio.git` pela URL real do seu repositório)
