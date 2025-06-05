@@ -132,7 +132,7 @@ Siga estas instruções para ter uma cópia do projeto rodando na sua máquina l
 2.  **Navegue até o diretório do projeto:**
 
     ```bash
-    cd seu-portfolio
+    cd portfolio
     ```
 
 3.  **Instale as dependências:**
