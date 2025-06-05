@@ -1,0 +1,242 @@
+/* src/components/Education/Education.module.css */
+.education {
+  padding: 4rem 0;
+  /* Usando variável de tema para o fundo da seção */
+  background-color: var(
+    --background-color
+  ); /* Fundo principal, ou secondary se preferir um leve contraste */
+  transition: background-color 0.3s ease; /* Transição suave para o tema */
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  text-align: center;
+}
+
+.title {
+  font-size: 2rem;
+  /* Usando variável de tema para o título da seção */
+  color: var(--heading-color);
+  margin-bottom: 2rem;
+  transition: color 0.3s ease; /* Transição suave para o tema */
+}
+
+.timeline {
+  position: relative;
+  padding: 2rem 0;
+}
+
+/* Linha vertical da linha do tempo */
+.timeline::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  width: 2px;
+  /* Usando variável de tema para a cor da linha */
+  background-color: var(--border-color);
+  transform: translateX(-50%);
+  transition: background-color 0.3s ease; /* Transição suave para o tema */
+}
+
+.timelineItem {
+  margin-bottom: 2rem;
+  position: relative;
+}
+
+.timelineYear {
+  position: absolute;
+  top: 0.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  /* Usando variáveis de tema para fundo e cor do texto do ano */
+  background-color: var(--primary-color);
+  color: #ffffff; /* Cor branca para o texto sobre o roxo */
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  z-index: 1;
+  font-size: 0.9rem;
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease; /* Transição suave para o tema */
+}
+
+.timelineContent {
+  width: 45%;
+  padding: 1rem;
+  /* Usando variáveis de tema para fundo, sombra e transição do conteúdo */
+  background-color: var(--secondary-background-color); /* Fundo dos cards de conteúdo */
+  box-shadow: 0 2px 4px var(--shadow-color);
+  border-radius: 5px;
+  font-size: 0.9rem;
+  transition:
+    background-color 0.3s ease,
+    box-shadow 0.3s ease; /* Transição suave para o tema */
+}
+
+/* Posiciona os conteúdos alternadamente à esquerda e à direita */
+.timelineItem:nth-child(odd) .timelineContent {
+  left: 0;
+}
+
+.timelineItem:nth-child(even) .timelineContent {
+  right: 0;
+  left: auto;
+}
+
+/* Adiciona uma bolinha no centro da linha para cada item */
+.timelineItem::after {
+  content: '';
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  /* Usando variável de tema para a cor da bolinha */
+  background-color: var(--primary-color);
+  border-radius: 50%;
+  top: 0.75rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 2;
+  transition: background-color 0.3s ease; /* Transição suave para o tema */
+}
+
+.degree {
+  font-size: 1.3rem;
+  /* Usando variável de tema para a cor do grau/curso */
+  color: var(--heading-color);
+  margin-bottom: 0.5rem;
+  transition: color 0.3s ease; /* Transição suave para o tema */
+}
+
+.institution {
+  /* Usando variável de tema para a cor da instituição */
+  color: var(--text-light);
+  margin-bottom: 0.5rem;
+  font-style: italic;
+  font-size: 0.85rem;
+  transition: color 0.3s ease; /* Transição suave para o tema */
+}
+
+.description {
+  /* Usando variável de tema para a cor da descrição */
+  color: var(--text-color);
+  line-height: 1.6;
+  font-size: 0.85rem;
+  transition: color 0.3s ease; /* Transição suave para o tema */
+}
+
+/* Media Queries para Responsividade */
+
+/* Para tablets (largura máxima de 768px) */
+@media (max-width: 768px) {
+  .container {
+    padding: 0 30px;
+  }
+
+  .title {
+    font-size: 1.75rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .timeline::before {
+    left: 30px;
+    transform: translateX(0);
+  }
+
+  .timelineYear {
+    left: 30px;
+    transform: translateX(0);
+    font-size: 0.8rem;
+    padding: 0.3rem 0.6rem;
+  }
+
+  .timelineContent {
+    width: 90%;
+    margin-left: 4rem;
+    font-size: 0.8rem;
+    padding: 0.8rem;
+  }
+
+  .timelineItem:nth-child(odd) .timelineContent,
+  .timelineItem:nth-child(even) .timelineContent {
+    left: 4rem;
+    right: auto;
+  }
+
+  .timelineItem::after {
+    left: 30px;
+    transform: translateX(0);
+    width: 8px;
+    height: 8px;
+    top: 0.6rem;
+  }
+
+  .degree {
+    font-size: 1.1rem;
+  }
+
+  .institution {
+    font-size: 0.8rem;
+  }
+
+  .description {
+    font-size: 0.75rem;
+  }
+}
+
+/* Para smartphones (largura máxima de 480px) */
+@media (max-width: 480px) {
+  .container {
+    padding: 0 20px;
+  }
+
+  .title {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .timeline::before {
+    left: 20px;
+  }
+
+  .timelineYear {
+    left: 20px;
+    font-size: 0.7rem;
+    padding: 0.2rem 0.5rem;
+  }
+
+  .timelineContent {
+    width: 90%;
+    margin-left: 3rem;
+    font-size: 0.75rem;
+    padding: 0.6rem;
+  }
+
+  .timelineItem:nth-child(odd) .timelineContent,
+  .timelineItem:nth-child(even) .timelineContent {
+    left: 3rem;
+  }
+
+  .timelineItem::after {
+    left: 20px;
+    width: 6px;
+    height: 6px;
+    top: 0.5rem;
+  }
+
+  .degree {
+    font-size: 1rem;
+  }
+
+  .institution {
+    font-size: 0.7rem;
+  }
+
+  .description {
+    font-size: 0.7rem;
+    line-height: 1.5;
+  }
+}

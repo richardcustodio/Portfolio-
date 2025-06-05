@@ -1,0 +1,98 @@
+/* src/index.css */
+
+/* Este arquivo é o ponto de entrada para os estilos globais da sua aplicação.
+   Como estamos usando um arquivo global.css para gerenciar os estilos base e
+   temas, podemos manter este arquivo bem limpo e importar nosso global.css.
+   Outros estilos aqui devem ser usados com cautela para evitar conflitos
+   com os estilos modulares dos componentes. */
+
+/* Importe o seu arquivo de estilos globais */
+@import './styles/global.css';
+
+/* Remova os estilos padrão do Vite/React que não são necessários */
+:root {
+  /* Font family já definido no global.css */
+  /* font-family: system-ui, Avenir, Helvetica, Arial, sans-serif; */
+  /* line-height já definido no global.css */
+  /* line-height: 1.5; */
+  /* font-weight já definido no global.css */
+  /* font-weight: 400; */
+
+  /* Color scheme pode ser relevante se você não controlar o tema completamente com CSS variables */
+  color-scheme: light dark;
+  /* Cores padrão que serão sobrescritas pelas variáveis do tema */
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #242424;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Estilos para links - movidos ou já cobertos no global.css */
+a {
+  /* font-weight: 500; */ /* Já pode estar no global.css */
+  color: inherit; /* Usamos inherit no global.css */
+  text-decoration: none; /* Usamos none no global.css */
+}
+
+a:hover {
+  color: #535bf2; /* Cor de hover específica, pode ser mantida ou usar uma variável do tema */
+}
+
+/* Estilos para o body - já amplamente definidos no global.css */
+body {
+  margin: 0;
+  display: flex;
+  place-items: center;
+  min-width: 320px;
+  min-height: 100vh;
+  /* background-color: var(--background-color); */ /* Já definido no global.css */
+  /* color: var(--text-color); */ /* Já definido no global.css */
+}
+
+/* Estilos para h1 - já definidos no global.css */
+/* h1 {
+  font-size: 3.2em;
+  line-height: 1.1;
+} */
+
+/* Estilos para button - geralmente melhor definidos em um componente Button */
+button {
+  border-radius: 8px;
+  border: 1px solid transparent;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: #1a1a1a;
+  cursor: pointer;
+  transition: border-color 0.25s;
+}
+
+button:hover {
+  border-color: #646cff;
+}
+
+button:focus,
+button:focus-visible {
+  outline: 4px auto -webkit-focus-ring-color;
+}
+
+/* Media query para preferência de tema - geralmente controlado pelas variáveis CSS */
+@media (prefers-color-scheme: light) {
+  :root {
+    color: #213547;
+    background-color: #ffffff;
+  }
+  a:hover {
+    color: #747bff;
+  }
+  button {
+    background-color: #f9f9f9;
+  }
+}
+
+/* Adicione aqui quaisquer estilos que realmente precisem ser globais
+   e não se encaixam bem no global.css (raramente necessário com a abordagem atual). */

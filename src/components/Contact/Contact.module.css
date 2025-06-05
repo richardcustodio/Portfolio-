@@ -1,0 +1,376 @@
+/* src/components/Contact/Contact.module.css */
+.contact {
+  padding: 4rem 0;
+  background-color: var(--secondary-background-color);
+  transition: background-color 0.3s ease;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  text-align: center;
+}
+
+.title {
+  font-size: 2rem;
+  color: var(--heading-color);
+  margin-bottom: 2rem;
+  transition: color 0.3s ease;
+}
+
+.contactContent {
+  display: flex;
+  gap: 2rem;
+  flex-direction: column;
+  align-items: center;
+}
+
+.contactForm {
+  background-color: var(--background-color);
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px var(--shadow-color);
+  width: 100%;
+  max-width: 500px;
+  transition:
+    background-color 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.formGroup {
+  margin-bottom: 1.5rem;
+  text-align: left;
+}
+
+.label {
+  display: block;
+  margin-bottom: 0.5rem;
+  color: var(--text-color);
+  font-weight: bold;
+  font-size: 0.9rem;
+  transition: color 0.3s ease;
+}
+
+.input,
+.textarea {
+  /* Mantido 100% da largura, o padding interno já gerencia o espaço */
+  width: 100%;
+  padding: 0.8rem;
+  border: 1px solid var(--border-color);
+  background-color: var(--input-background-color);
+  color: var(--text-color);
+  border-radius: 5px;
+  font-size: 1rem;
+  transition:
+    border-color 0.3s ease,
+    background-color 0.3s ease,
+    color 0.3s ease;
+}
+
+.input:focus,
+.textarea:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 2px var(--primary-color-light);
+}
+
+.textarea {
+  min-height: 100px;
+}
+
+.errorMessage {
+  color: var(--error-color, red);
+  font-size: 0.9rem;
+  margin-top: 0.3rem;
+  transition: color 0.3s ease;
+}
+
+.submitButton {
+  background-color: var(--primary-color);
+  color: white;
+  padding: 0.8rem 1.5rem;
+  border: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  width: 100%;
+}
+
+.submitButton:hover {
+  background-color: var(--secondary-color);
+}
+
+.contactInfo {
+  margin-top: 2rem;
+  text-align: center; /* Centraliza em telas menores, será ajustado em @media (min-width: 768px) */
+}
+
+.contactInfo h3 {
+  color: var(--heading-color);
+  margin-bottom: 1rem;
+  font-size: 1.5rem;
+  transition: color 0.3s ease;
+}
+
+/* --- ESTILOS PARA O BOTÃO DE COPIAR E-MAIL --- */
+.emailCopyContainer {
+  display: flex; /* Para alinhar o texto do e-mail e o botão */
+  align-items: center; /* Alinha verticalmente */
+  justify-content: center; /* Centraliza horizontalmente */
+  gap: 0.75rem; /* Espaçamento entre o e-mail e o botão */
+  margin-bottom: 1.5rem; /* Espaçamento abaixo do container do e-mail */
+  background-color: var(--input-background-color); /* Fundo sutil */
+  border: 1px solid var(--border-color); /* Borda para demarcar */
+  border-radius: 5px;
+  padding: 0.7rem 1rem; /* Padding interno */
+  max-width: fit-content; /* Ajusta a largura ao conteúdo */
+  margin-left: auto; /* Centraliza o bloco do email/botão */
+  margin-right: auto; /* Centraliza o bloco do email/botão */
+  transition:
+    background-color 0.3s ease,
+    border-color 0.3s ease;
+}
+
+.emailText {
+  color: var(--text-color);
+  font-size: 1rem;
+  margin: 0; /* Remove margem padrão de parágrafo */
+  white-space: nowrap; /* Evita que o e-mail quebre a linha */
+  overflow: hidden; /* Esconde o excesso se não couber */
+  text-overflow: ellipsis; /* Adiciona reticências se o texto for cortado */
+  transition: color 0.3s ease;
+}
+
+.copyButton {
+  background: none;
+  border: none;
+  color: var(--primary-color); /* Cor do ícone */
+  cursor: pointer;
+  padding: 0.4rem; /* Um pouco mais de padding para área de clique */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition:
+    color 0.3s ease,
+    transform 0.2s ease; /* Adiciona transição para transformação */
+}
+
+.copyButton:hover {
+  color: var(--secondary-color); /* Destaque no hover */
+  transform: translateY(-2px); /* Pequeno efeito de elevação no hover */
+}
+
+.copyMessage {
+  margin-left: 0.8rem; /* Espaçamento da mensagem de sucesso */
+  font-size: 0.9rem;
+  color: var(--primary-color); /* Cor da mensagem de sucesso */
+  animation: fadeOut 2.5s forwards; /* Animação de fade-out mais longa */
+  white-space: nowrap; /* Impede que a mensagem quebre a linha */
+}
+
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+  }
+  80% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+/* --- FIM DOS ESTILOS PARA O BOTÃO DE COPIAR E-MAIL --- */
+
+.socialLinks {
+  display: flex;
+  gap: 1.5rem;
+  justify-content: center;
+}
+
+.socialIcon {
+  color: var(--primary-color);
+  text-decoration: none;
+  transition: color 0.3s ease;
+  font-size: 1.5rem;
+}
+
+.socialIcon:hover {
+  color: var(--highlight-color);
+}
+
+/* Media Queries para Responsividade */
+
+@media (max-width: 768px) {
+  .container {
+    padding: 0 30px;
+  }
+
+  .title {
+    font-size: 1.75rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .contactContent {
+    gap: 1.5rem;
+  }
+
+  .contactForm {
+    padding: 1.5rem;
+    max-width: none;
+  }
+
+  .label {
+    font-size: 0.85rem;
+  }
+
+  .input,
+  .textarea {
+    font-size: 0.95rem;
+    padding: 0.7rem;
+  }
+
+  .submitButton {
+    font-size: 0.95rem;
+    padding: 0.7rem 1.2rem;
+  }
+
+  .contactInfo {
+    margin-top: 1.5rem;
+  }
+
+  .contactInfo h3 {
+    font-size: 1.3rem;
+  }
+
+  .emailCopyContainer {
+    padding: 0.6rem 0.8rem; /* Ajuste do padding em tablets */
+    gap: 0.6rem;
+  }
+
+  .emailText {
+    font-size: 0.95rem;
+  }
+
+  .copyButton {
+    padding: 0.3rem;
+  }
+
+  .copyMessage {
+    font-size: 0.85rem;
+  }
+
+  .socialLinks {
+    gap: 1rem;
+  }
+
+  .socialIcon {
+    font-size: 1.3rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding: 0 20px;
+  }
+
+  .title {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .contactContent {
+    gap: 1rem;
+  }
+
+  .contactForm {
+    padding: 1rem;
+  }
+
+  .label {
+    font-size: 0.8rem;
+  }
+
+  .input,
+  .textarea {
+    font-size: 0.9rem;
+    padding: 0.6rem;
+  }
+
+  .submitButton {
+    font-size: 0.9rem;
+    padding: 0.6rem 1rem;
+  }
+
+  .contactInfo {
+    margin-top: 1rem;
+  }
+
+  .contactInfo h3 {
+    font-size: 1.2rem;
+  }
+
+  .emailCopyContainer {
+    flex-direction: column; /* Empilha texto e botão em telas pequenas */
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.5rem;
+  }
+
+  .emailText {
+    font-size: 0.9rem;
+    text-align: center; /* Centraliza o texto do e-mail quando empilhado */
+    white-space: normal; /* Permite quebrar linha em telas muito pequenas */
+    overflow: visible; /* Garante que o texto não seja cortado */
+    text-overflow: clip; /* Remove as reticências se quebrar linha */
+  }
+
+  .copyButton {
+    padding: 0.2rem;
+  }
+
+  .copyMessage {
+    margin-left: 0; /* Centraliza a mensagem quando empilhado */
+    text-align: center;
+    font-size: 0.8rem;
+  }
+
+  .socialLinks {
+    gap: 0.75rem;
+  }
+
+  .socialIcon {
+    font-size: 1.2rem;
+  }
+}
+
+/* Estilos para telas maiores (min-width: 768px) - para alinhar lado a lado */
+@media (min-width: 768px) {
+  .contactContent {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+
+  .contactForm {
+    width: 45%;
+  }
+
+  .contactInfo {
+    width: 45%;
+    text-align: left; /* Alinha o conteúdo da info de contato à esquerda */
+  }
+
+  /* Garante que o container de copiar e-mail também alinhe à esquerda */
+  .emailCopyContainer {
+    justify-content: flex-start;
+    margin-left: 0; /* Remove a centralização automática */
+    margin-right: auto; /* Alinha à esquerda */
+  }
+
+  .socialLinks {
+    justify-content: flex-start; /* Alinha os ícones sociais à esquerda */
+  }
+}

@@ -1,0 +1,152 @@
+/* src/components/Navbar/Navbar.module.css */
+.navbar {
+  background-color: var(--secondary-background-color); /* Usa a variável de tema */
+  padding: 1rem 0;
+  box-shadow: 0 2px 4px var(--shadow-color); /* Usa a variável de tema */
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  transition:
+    background-color 0.3s ease,
+    box-shadow 0.3s ease; /* Transição para o tema */
+}
+
+.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1260px;
+  margin: 0 auto;
+  padding: 0 21px;
+}
+
+.logo {
+  font-size: 1.6rem;
+  font-weight: bold;
+  color: var(--primary-color); /* Usa a variável de tema */
+  z-index: 101;
+}
+
+.menu {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  transition:
+    transform 0.3s ease-out,
+    opacity 0.3s ease-out;
+}
+
+.menuItem {
+  margin-left: 1.5rem;
+}
+
+.menuLink {
+  text-decoration: none;
+  color: var(--text-color); /* Usa a variável de tema */
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.menuLink:hover {
+  color: var(--highlight-color); /* Usa a variável de tema (amarelo dourado) para hover */
+}
+
+/* --- Ícone do Menu Toggle --- */
+.menuToggle {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.5rem;
+  z-index: 102;
+  color: var(--text-color); /* Usa a variável de tema */
+  font-size: 1.5rem;
+  transition: color 0.3s ease; /* Transição para a cor do ícone */
+}
+
+/* --- Media Queries para Responsividade --- */
+@media (max-width: 768px) {
+  .navbar {
+    padding: 0.8rem 0;
+  }
+
+  .container {
+    padding: 0 20px;
+  }
+
+  .menu {
+    display: flex;
+    flex-direction: column;
+    /* Seu requisito: roxo no fundo do menu mobile */
+    background-color: var(--primary-color); /* Usando o roxo principal para o fundo */
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    box-shadow: 0 4px 8px var(--shadow-color); /* Usa a variável de tema */
+    transform: translateY(-100%);
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  .menu.open {
+    transform: translateY(0);
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  .menuItem {
+    margin: 0;
+    padding: 1rem 20px;
+    /* Borda para itens do menu mobile, use uma cor clara para contrastar com o roxo */
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    text-align: center;
+  }
+
+  .menuItem:last-child {
+    border-bottom: none;
+  }
+
+  .menuLink {
+    color: #ffffff; /* Cor branca fixa para os links no menu roxo, para alto contraste */
+    font-size: 1rem;
+  }
+
+  .menuLink:hover {
+    color: var(--highlight-color); /* Amarelo dourado para hover no menu roxo */
+  }
+
+  .logo {
+    font-size: 1.5rem;
+  }
+
+  .menuToggle {
+    display: block;
+    font-size: 1.8rem;
+    color: var(--text-color); /* Mantém a cor do ícone seguindo o tema */
+  }
+}
+
+@media (max-width: 480px) {
+  .navbar {
+    padding: 0.6rem 0;
+  }
+
+  .logo {
+    font-size: 1.3rem;
+  }
+
+  .menuToggle {
+    padding: 0.3rem;
+    font-size: 1.5rem;
+  }
+
+  .menuItem {
+    padding: 0.75rem 20px;
+  }
+
+  .menuLink {
+    font-size: 0.95rem;
+  }
+}

@@ -1,0 +1,56 @@
+/* src/App.css */
+
+/* Este arquivo é geralmente usado para estilos mais específicos da estrutura da aplicação
+   ou para sobrescrever estilos de bibliotecas, se necessário.
+   Como estamos usando CSS Modules para os componentes e um global.css para estilos base,
+   podemos manter este arquivo mais limpo e focado na estrutura principal. */
+
+#root {
+  /* Centralização e largura máxima, similar ao nosso .container global */
+  max-width: 1260px; /* Alinhado com o ajuste no global.css */
+  margin: 0 auto;
+  /* O padding pode ser removido ou ajustado, pois os componentes internos já têm padding */
+  /* padding: 2rem; */
+  text-align: center; /* Pode ser removido se o alinhamento for controlado nos componentes */
+}
+
+/* Estilos relacionados ao logo do React/Vite (podem ser removidos se não estiverem sendo usados) */
+.logo {
+  height: 6em;
+  padding: 1.5em;
+  will-change: filter;
+  transition: filter 300ms;
+}
+
+.logo:hover {
+  filter: drop-shadow(0 0 2em #646cffaa);
+}
+
+.logo.react:hover {
+  filter: drop-shadow(0 0 2em #61dafbaa);
+}
+
+@keyframes logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  /* Seletor específico para um link com logo giratório - remover se não aplicável */
+  /* a:nth-of-type(2) .logo {
+    animation: logo-spin infinite 20s linear;
+  } */
+}
+
+/* Estilos para um elemento com a classe 'read-the-docs' (remover se não aplicável) */
+.read-the-docs {
+  color: #888;
+}
+
+/* Adicione aqui qualquer estilo específico para a estrutura geral da sua aplicação
+   que não se encaixa nos componentes ou no global.css.
+   Por exemplo, estilos para layouts de página, se você tiver múltiplas páginas. */

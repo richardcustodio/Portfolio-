@@ -1,0 +1,100 @@
+/* src/components/Footer/Footer.module.css */
+.footer {
+  /* Usando variáveis de tema para o fundo e cor do texto do rodapé */
+  background-color: var(
+    --header-footer-background
+  ); /* Uma variável específica para cabeçalho e rodapé */
+  color: var(--header-footer-text); /* Cor do texto para cabeçalho e rodapé */
+  padding: 2rem 0;
+  text-align: center;
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease; /* Transição suave para o tema */
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.copyright {
+  font-size: 0.9rem;
+  margin-bottom: 0.5rem;
+  /* Garante que o texto de copyright também transicione */
+  transition: color 0.3s ease;
+}
+
+.footerLinks {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.footerLinks li a {
+  /* Usando variável de tema para a cor dos links no rodapé */
+  color: var(--header-footer-text);
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition: color 0.3s ease;
+}
+
+.footerLinks li a:hover {
+  /* Usando variável de tema para o hover dos links */
+  color: var(--primary-color);
+}
+
+/* Media Queries para Responsividade */
+
+/* Para tablets (largura máxima de 768px) */
+@media (max-width: 768px) {
+  .container {
+    padding: 0 30px;
+  }
+
+  .copyright {
+    font-size: 0.85rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .footerLinks {
+    gap: 0.75rem;
+  }
+
+  .footerLinks li a {
+    font-size: 0.85rem;
+  }
+}
+
+/* Para smartphones (largura máxima de 480px) */
+@media (max-width: 480px) {
+  .container {
+    padding: 0 20px;
+  }
+
+  .copyright {
+    font-size: 0.8rem;
+    margin-bottom: 1rem;
+  }
+
+  .footerLinks {
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .footerLinks li {
+    margin: 0.25rem 0;
+  }
+
+  .footerLinks li a {
+    font-size: 0.8rem;
+  }
+
+  .footer {
+    padding: 1.5rem 0;
+  }
+}

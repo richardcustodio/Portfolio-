@@ -1,0 +1,50 @@
+/* src/styles/themes.css */
+
+/* Definição de Cores Base para o Tema Claro (Default) */
+:root {
+  --primary-color: #7b2cbf; /* Roxo Mais Claro - para destaque, botões, links */
+  --secondary-color: #5a189a; /* Roxo Claro - para elementos secundários */
+  --tertiary-color: #3c096c; /* Roxo Médio - para detalhes */
+  --highlight-color: #ffd500; /* Amarelo Dourado - para ênfase e hover */
+
+  --text-color: #333333; /* Cor principal do texto (escuro) */
+  --text-light: #555555; /* Cor do texto mais claro (parágrafos, descrições) */
+  --heading-color: #10002b; /* Cor dos títulos (Roxo Escuro) */
+
+  --background-color: #ffffff; /* Fundo principal claro */
+  --secondary-background-color: #f8f8f8; /* Fundo secundário claro (Navbar, Cards) */
+  --border-color: #dddddd; /* Cor da borda clara */
+  --shadow-color: rgba(0, 0, 0, 0.1); /* Cor da sombra clara */
+
+  /* Cores específicas para o modo escuro, mas como variáveis que serão ativadas com a classe 'dark-mode' */
+  --dark-primary-color: #7b2cbf;
+  --dark-secondary-color: #5a189a;
+  --dark-tertiary-color: #3c096c;
+  --dark-highlight-color: #ffd500;
+
+  --dark-text-color: #f0f0f0; /* Cor principal do texto (claro) */
+  --dark-text-light: #cccccc; /* Cor do texto mais claro (parágrafos, descrições) */
+  --dark-heading-color: #f8f8f8; /* Cor dos títulos (claro) */
+
+  --dark-background-color: #10002b; /* Fundo principal escuro (Roxo Escuro) */
+  --dark-secondary-background-color: #240046; /* Fundo secundário escuro (Roxo Médio Escuro) */
+  --dark-border-color: #444444; /* Cor da borda escura */
+  --dark-shadow-color: rgba(0, 0, 0, 0.4); /* Cor da sombra escura */
+}
+
+/* Definição de Cores para o Tema Escuro (ativado pela classe 'dark-mode' no <html>) */
+html.dark-mode {
+  --primary-color: var(--dark-primary-color);
+  --secondary-color: var(--dark-secondary-color);
+  --tertiary-color: var(--dark-tertiary-color);
+  --highlight-color: var(--dark-highlight-color);
+
+  --text-color: var(--dark-text-color);
+  --text-light: var(--dark-text-light);
+  --heading-color: var(--dark-heading-color);
+
+  --background-color: var(--dark-background-color);
+  --secondary-background-color: var(--dark-secondary-background-color);
+  --border-color: var(--dark-border-color);
+  --shadow-color: var(--dark-shadow-color);
+}

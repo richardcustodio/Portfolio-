@@ -1,0 +1,103 @@
+/* src/components/About/About.module.css */
+.about {
+  /* Usando variáveis de tema para fundo e transição */
+  background-color: var(--secondary-background-color); /* Fundo secundário para seções */
+  padding: 4rem 0;
+  transition: background-color 0.3s ease; /* Transição suave para o tema */
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  text-align: center;
+}
+
+.title {
+  font-size: 2rem;
+  /* Usando variável de tema para o título da seção */
+  color: var(--heading-color);
+  margin-bottom: 2rem;
+  transition: color 0.3s ease; /* Transição suave para o tema */
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.biography {
+  /* Usando variável de tema para o texto da biografia */
+  color: var(--text-color);
+  line-height: 1.6;
+  margin-bottom: 2rem;
+  text-align: left;
+  max-width: 800px;
+  transition: color 0.3s ease; /* Transição suave para o tema */
+}
+
+.socialLinks {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.socialIcon {
+  /* Usando variável de tema para a cor dos ícones */
+  color: var(--primary-color);
+  text-decoration: none;
+  transition:
+    color 0.3s ease,
+    transform 0.2s ease; /* Adiciona transição para o hover */
+}
+
+.socialIcon:hover {
+  /* Usando variável de tema para o hover dos ícones */
+  color: var(--highlight-color);
+  transform: translateY(-3px); /* Efeito sutil ao passar o mouse */
+}
+
+/* Media Queries para Responsividade */
+
+/* Para tablets (largura máxima de 768px) */
+@media (max-width: 768px) {
+  .container {
+    padding: 0 30px;
+  }
+
+  .title {
+    font-size: 1.75rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .biography {
+    text-align: center;
+    font-size: 0.95rem;
+  }
+
+  .socialLinks {
+    justify-content: center;
+    gap: 1rem;
+  }
+}
+
+/* Para smartphones (largura máxima de 480px) */
+@media (max-width: 480px) {
+  .container {
+    padding: 0 20px;
+  }
+
+  .title {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .biography {
+    font-size: 0.9rem;
+    line-height: 1.5;
+  }
+
+  .socialLinks {
+    gap: 0.75rem;
+  }
+}

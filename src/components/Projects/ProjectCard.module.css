@@ -1,0 +1,164 @@
+/* src/components/Projects/ProjectCard.module.css */
+.projectCard {
+  /* Usando variáveis de tema para fundo, sombra e borda */
+  background-color: var(--secondary-background-color); /* Fundo do card */
+  box-shadow: 0 4px 8px var(--shadow-color);
+  border: 1px solid var(--border-color); /* Adiciona uma borda sutil para contraste */
+  border-radius: 8px;
+  overflow: hidden;
+  /* Transições suaves para todas as propriedades de cor/sombra */
+  transition:
+    transform 0.3s ease,
+    background-color 0.3s ease,
+    box-shadow 0.3s ease,
+    border-color 0.3s ease;
+}
+
+.projectCard:hover {
+  transform: translateY(-5px);
+  /* Sombra mais pronunciada no hover */
+  box-shadow: 0 6px 12px var(--shadow-color-hover); /* Usando uma variável para hover */
+}
+
+.imageContainer {
+  width: 100%;
+  height: 200px;
+  overflow: hidden;
+}
+
+.projectImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.projectDetails {
+  padding: 1.5rem;
+}
+
+.projectTitle {
+  font-size: 1.5rem;
+  /* Usando variável de tema para o título do projeto */
+  color: var(--heading-color);
+  margin-bottom: 0.5rem;
+  transition: color 0.3s ease;
+}
+
+.projectDescription {
+  /* Usando variável de tema para a descrição do projeto */
+  color: var(--text-color);
+  line-height: 1.6;
+  margin-bottom: 1rem;
+  font-size: 0.9rem;
+  transition: color 0.3s ease;
+}
+
+.techStack {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 1rem 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.techStack li {
+  /* Usando variáveis de tema para as tags de tecnologia */
+  background-color: var(--primary-color-light); /* Uma cor clara ou pastel do tema principal */
+  color: var(--primary-color-dark); /* Cor de texto que contrasta com a tag */
+  padding: 0.3rem 0.6rem;
+  border-radius: 5px;
+  font-size: 0.8rem;
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease;
+}
+
+.links {
+  display: flex;
+  gap: 1rem;
+}
+
+.linkButton {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  /* Usando variáveis de tema para os botões de link */
+  background-color: var(--primary-color);
+  color: #ffffff; /* Texto branco para alto contraste */
+  padding: 0.6rem 1rem;
+  text-decoration: none;
+  border-radius: 5px;
+  font-size: 0.9rem;
+  transition: background-color 0.3s ease;
+}
+
+.linkButton:hover {
+  /* Usando variável de tema para o hover do botão */
+  background-color: var(--secondary-color); /* Roxo mais escuro ou cor de destaque */
+}
+
+/* Media Queries para Responsividade */
+
+@media (max-width: 768px) {
+  .projectTitle {
+    font-size: 1.3rem;
+  }
+
+  .projectDescription {
+    font-size: 0.85rem;
+  }
+
+  .techStack li {
+    font-size: 0.75rem;
+    padding: 0.2rem 0.5rem;
+  }
+
+  .linkButton {
+    font-size: 0.85rem;
+    padding: 0.5rem 0.8rem;
+  }
+
+  .imageContainer {
+    height: 180px;
+  }
+}
+
+@media (max-width: 480px) {
+  .projectTitle {
+    font-size: 1.2rem;
+  }
+
+  .projectDescription {
+    font-size: 0.8rem;
+  }
+
+  .techStack {
+    gap: 0.3rem;
+  }
+
+  .techStack li {
+    font-size: 0.7rem;
+    padding: 0.2rem 0.4rem;
+  }
+
+  .links {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+
+  .linkButton {
+    width: 100%;
+    font-size: 0.8rem;
+    padding: 0.5rem;
+  }
+
+  .imageContainer {
+    height: 150px;
+  }
+
+  .projectDetails {
+    padding: 1rem;
+  }
+}
