@@ -1,4 +1,4 @@
-# 🚀 Portfólio Pessoal - [Seu Nome/Sua Empresa]
+# 🚀 Portfólio Pessoal - Richard Custodio
 
 Bem-vindo(a) ao repositório do meu portfólio pessoal! Este projeto é uma vitrine das minhas habilidades como aspirante desenvolvedor frontend, exibindo meus projetos, formação e experiência de uma forma moderna, responsiva e interativa.
 
@@ -125,14 +125,6 @@ Siga estas instruções para ter uma cópia do projeto rodando na sua máquina l
 
 ---
 
-## 📄 Baixe Meu Currículo
-
-Você pode fazer o download do meu currículo atualizado em PDF diretamente aqui:
-
-[**Download Currículo**]([public/CV/curriculo.pdf])
-
----
-
 ## 🤝 Contato
 
 Fique à vontade para entrar em contato para oportunidades de trabalho, colaborações ou apenas para conversar!
@@ -153,12 +145,6 @@ A identidade visual do projeto segue esta paleta:
 - `#5a189a` (Roxo Claro)
 - `#7b2cbf` (Roxo Mais Claro)
 - `#ffd500` (Amarelo Dourado - para destaque/ênfase)
-
----
-
-## ©️ Licença
-
-Este projeto está licenciado sob a Licença MIT. Veja o arquivo [LICENSE](LICENSE) para mais detalhes.
 
 ---
 
