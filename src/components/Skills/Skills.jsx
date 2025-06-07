@@ -1,4 +1,3 @@
-// src/components/Skills/Skills.jsx
 import React from 'react'
 import styles from './Skills.module.css'
 import { FaHtml5, FaCss3Alt, FaJs, FaReact, FaGitAlt, FaPython } from 'react-icons/fa'

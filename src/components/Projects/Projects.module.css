@@ -1,11 +1,7 @@
-/* src/components/Projects/Projects.module.css */
 .projects {
   padding: 4rem 0;
-  /* Usando variável de tema para o fundo da seção */
-  background-color: var(
-    --background-color
-  ); /* Você pode usar primary ou secondary aqui para alternar o fundo entre seções */
-  transition: background-color 0.3s ease; /* Transição suave para o tema */
+  background-color: var(--background-color);
+  transition: background-color 0.3s ease;
 }
 
 .container {
@@ -17,10 +13,9 @@
 
 .title {
   font-size: 2rem;
-  /* Usando variável de tema para o título da seção */
   color: var(--heading-color);
   margin-bottom: 2rem;
-  transition: color 0.3s ease; /* Transição suave para o tema */
+  transition: color 0.3s ease;
 }
 
 .projectsGrid {
@@ -28,21 +23,6 @@
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 2rem;
 }
-
-/* IMPORTANTE: As classes abaixo (.projectCard, .projectImageContainer, etc.)
-   pertencem ao ProjectCard.module.css. Não as adicione aqui.
-   Elas estão presentes no seu código original, mas para manter a modularidade,
-   devem ser estilizadas no arquivo CSS do ProjectCard. */
-/*
-.projectCard { ... }
-.projectCard:hover { ... }
-.projectImageContainer { ... }
-.projectImage { ... }
-.projectInfo { ... }
-.projectTitle { ... }
-.projectDescription { ... }
-.projectTechStack { ... }
-*/
 
 /* Media Queries para Responsividade */
 

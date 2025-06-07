@@ -1,88 +1,90 @@
 // src/components/Contact/Contact.jsx
-import React, { useState, useEffect } from 'react'; // Adicionei useEffect aqui
-import styles from './Contact.module.css';
-import { FaLinkedin, FaGithub, FaEnvelope, FaCopy } from 'react-icons/fa';
+import React, { useState, useEffect } from 'react'
+import styles from './Contact.module.css'
+import { FaLinkedin, FaGithub, FaEnvelope, FaCopy } from 'react-icons/fa'
 
 function Contact() {
-  const [name, setName] = useState('');
-  const [email, setEmail] = useState('');
-  const [message, setMessage] = useState('');
-  const [errors, setErrors] = useState({});
-  const [copySuccess, setCopySuccess] = useState('');
-  const [formMessage, setFormMessage] = useState({ text: '', type: '' });
-  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [name, setName] = useState('')
+  const [email, setEmail] = useState('')
+  const [message, setMessage] = useState('')
+  const [errors, setErrors] = useState({})
+  const [copySuccess, setCopySuccess] = useState('')
+  const [formMessage, setFormMessage] = useState({ text: '', type: '' })
+  const [isSubmitting, setIsSubmitting] = useState(false)
 
-  // --- NOVA VARIÁVEL DE ESTADO PARA DESATIVAR O FORMULÁRIO ---
-  const [formDisabled, setFormDisabled] = useState(true); // Começa como true (desabilitado)
+  // O formulário de contato está desabilitado permanentemente.
+  // Se houver planos de reativá-lo, 'formDisabled' deve ser um estado.
+  const formDisabled = true
 
-  const myEmail = 'rc.custodio078@outlook.com';
+  const myEmail = 'rc.custodio078@outlook.com'
 
-  // Use useEffect para definir a mensagem inicial quando o componente montar
+  // Define a mensagem inicial de indisponibilidade do formulário.
   useEffect(() => {
     if (formDisabled) {
       setFormMessage({
         text: 'No momento, o envio de mensagens está temporariamente indisponível. Por favor, use os links diretos para contato.',
-        type: 'info' // Um novo tipo 'info' para indicar que é um aviso, não um erro
-      });
+        type: 'info',
+      })
     }
-  }, [formDisabled]); // Este efeito roda uma vez quando formDisabled muda para true
+  }, [formDisabled]) // Este efeito executa quando formDisabled (a constante) é inicializado.
 
+  // Valida os campos do formulário antes do envio.
   const validateForm = () => {
-    let isValid = true;
-    const newErrors = {};
+    let isValid = true
+    const newErrors = {}
 
     if (!name.trim()) {
-      newErrors.name = 'O nome é obrigatório.';
-      isValid = false;
+      newErrors.name = 'O nome é obrigatório.'
+      isValid = false
     }
 
     if (!email.trim()) {
-      newErrors.email = 'O e-mail é obrigatório.';
-      isValid = false;
+      newErrors.email = 'O e-mail é obrigatório.'
+      isValid = false
     } else if (!/\S+@\S+\.\S+/.test(email)) {
-      newErrors.email = 'E-mail inválido.';
-      isValid = false;
+      newErrors.email = 'E-mail inválido.'
+      isValid = false
     }
 
     if (!message.trim()) {
-      newErrors.message = 'A mensagem é obrigatória.';
-      isValid = false;
+      newErrors.message = 'A mensagem é obrigatória.'
+      isValid = false
     }
 
-    setErrors(newErrors);
-    return isValid;
-  };
+    setErrors(newErrors)
+    return isValid
+  }
 
+  // Lida com a submissão do formulário.
   const handleSubmit = async (event) => {
-    event.preventDefault();
+    event.preventDefault()
 
-    // --- BLOQUEIO AQUI: Se o formulário estiver desabilitado, não faz nada ---
+    // Impede o envio se o formulário estiver desabilitado.
     if (formDisabled) {
       setFormMessage({
         text: 'O envio de mensagens está desabilitado no momento. Use os links abaixo.',
-        type: 'info'
-      });
-      return; // Impede que o restante da função seja executado
+        type: 'info',
+      })
+      return // Bloqueia a execução do restante da função.
     }
 
-    // O código abaixo só seria executado se formDisabled fosse 'false'
-    setFormMessage({ text: '', type: '' });
-    setErrors({});
+    // Limpa mensagens anteriores e erros.
+    setFormMessage({ text: '', type: '' })
+    setErrors({})
 
+    // Valida o formulário antes de tentar enviar.
     if (!validateForm()) {
       setFormMessage({
         text: 'Por favor, preencha todos os campos obrigatórios corretamente.',
         type: 'error',
-      });
-      return;
+      })
+      return
     }
 
-    setIsSubmitting(true);
+    setIsSubmitting(true)
 
     try {
-      // Este bloco de código de envio ao backend NÃO SERÁ ALCANÇADO
-      // enquanto 'formDisabled' for 'true'.
-      // Deixei o código comentado como exemplo de como reativar no futuro.
+      // O código de envio ao backend está comentado pois o formulário está desabilitado.
       /*
       const backendUrl = import.meta.env.MODE === 'production'
         ? import.meta.env.VITE_BACKEND_URL
@@ -113,38 +115,33 @@ function Contact() {
         });
       }
       */
-      // Se não estamos enviando, simulamos um sucesso imediato ou uma falha controlada
-      // para que a mensagem de "desabilitado" persista.
+      // Exibe a mensagem de que o formulário está desabilitado, simulando uma falha controlada.
       setFormMessage({
         text: 'O envio de mensagens está desabilitado no momento. Por favor, use os links diretos para contato.',
-        type: 'info'
-      });
-
-
+        type: 'info',
+      })
     } catch (error) {
-      console.error('Erro (simulado) ao enviar o formulário:', error);
+      console.error('Erro (simulado) ao enviar o formulário:', error)
       setFormMessage({
         text: 'Não foi possível enviar a mensagem no momento.',
         type: 'error',
-      });
+      })
     } finally {
-      setIsSubmitting(false);
-      // Remove o timeout para mensagens de sucesso, já que não haverá sucesso real
-      // e a mensagem de "info" deve persistir
-      // setTimeout(() => setFormMessage({ text: '', type: '' }), 5000);
+      setIsSubmitting(false)
     }
-  };
+  }
 
+  // Copia o endereço de e-mail para a área de transferência.
   const copyToClipboard = async () => {
     try {
-      await navigator.clipboard.writeText(myEmail);
-      setCopySuccess('Copiado!');
-      setTimeout(() => setCopySuccess(''), 2000);
+      await navigator.clipboard.writeText(myEmail)
+      setCopySuccess('Copiado!')
+      setTimeout(() => setCopySuccess(''), 2000)
     } catch (err) {
-      setCopySuccess('Falha ao copiar!');
-      console.error('Falha ao copiar texto: ', err);
+      setCopySuccess('Falha ao copiar!')
+      console.error('Falha ao copiar texto: ', err)
     }
-  };
+  }
 
   return (
     <section
@@ -164,7 +161,7 @@ function Contact() {
             data-aos="fade-right"
             data-aos-duration="1000"
           >
-            {/* Mensagem de Feedback do Formulário */}
+            {/* Exibe mensagens de feedback do formulário (sucesso, erro, info). */}
             {formMessage.text && (
               <p
                 className={`${styles.formFeedback} ${styles[formMessage.type]}`}
@@ -174,7 +171,7 @@ function Contact() {
                 {formMessage.text}
               </p>
             )}
-            {/* Campos do Formulário - Desabilitados se formDisabled for true */}
+            {/* Campos do Formulário - desabilitados se 'formDisabled' for true. */}
             <div className={styles.formGroup} data-aos="fade-right" data-aos-delay="100">
               <label htmlFor="name" className={styles.label}>
                 Nome:
@@ -240,18 +237,22 @@ function Contact() {
             <button
               type="submit"
               className={styles.submitButton}
-              disabled={isSubmitting || formDisabled} // Desabilita o botão se já estiver enviando OU se o form estiver desabilitado
+              disabled={isSubmitting || formDisabled} // Desabilita se estiver enviando OU se o formulário estiver desabilitado.
               aria-label={
                 isSubmitting
                   ? 'Enviando sua mensagem, por favor aguarde'
                   : formDisabled
-                    ? 'Envio de mensagem desabilitado' // Texto quando desabilitado
+                    ? 'Envio de mensagem desabilitado'
                     : 'Enviar Mensagem'
               }
               data-aos="zoom-in"
               data-aos-delay="400"
             >
-              {isSubmitting ? 'Enviando...' : formDisabled ? 'Temporariamente Indisponível' : 'Enviar Mensagem'}
+              {isSubmitting
+                ? 'Enviando...'
+                : formDisabled
+                  ? 'Temporariamente Indisponível'
+                  : 'Enviar Mensagem'}
             </button>
           </form>
           <div className={styles.contactInfo} data-aos="fade-left" data-aos-duration="1000">
@@ -306,7 +307,7 @@ function Contact() {
         </div>
       </div>
     </section>
-  );
+  )
 }
 
-export default Contact;
+export default Contact

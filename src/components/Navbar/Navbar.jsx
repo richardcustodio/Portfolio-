@@ -1,13 +1,10 @@
 import React, { useState } from 'react'
 import styles from './Navbar.module.css'
-// Importa os ícones que você quer usar do Font Awesome
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBars, faTimes } from '@fortawesome/free-solid-svg-icons' // faBars para hambúrguer, faTimes para o 'X'
 
 function Navbar() {
   const [isOpen, setIsOpen] = useState(false)
-  // Obtenha a hash da URL atual para aria-current
-  // É importante que essa lógica seja executada no lado do cliente
   const currentPath = typeof window !== 'undefined' ? window.location.hash : ''
 
   const handleSmoothScroll = (event) => {
@@ -18,7 +15,7 @@ function Navbar() {
     if (targetElement) {
       targetElement.scrollIntoView({ behavior: 'smooth' })
     }
-    setIsOpen(false) // Fecha o menu ao clicar no link
+    setIsOpen(false)
   }
 
   const toggleMenu = () => {
@@ -43,8 +40,8 @@ function Navbar() {
           className={styles.menuToggle}
           onClick={toggleMenu}
           aria-label={isOpen ? 'Fechar menu de navegação' : 'Abrir menu de navegação'}
-          aria-expanded={isOpen} // Indica se o menu está expandido (aberto) ou não
-          aria-controls="main-navigation-menu" // Conecta o botão ao ID do menu que ele controla
+          aria-expanded={isOpen}
+          aria-controls="main-navigation-menu"
         >
           {/* O ícone muda de hambúrguer para 'X' dependendo do estado do menu */}
           <FontAwesomeIcon icon={isOpen ? faTimes : faBars} size="lg" aria-hidden="true" />{' '}
@@ -55,17 +52,17 @@ function Navbar() {
         <ul
           id="main-navigation-menu" // ID para ser referenciado por aria-controls
           className={`${styles.menu} ${isOpen ? styles.open : ''}`}
-          role="menu" // Indica que a lista é um menu interativo
-          aria-orientation="vertical" // Orientação do menu (vertical em mobile)
-          aria-hidden={!isOpen} // Esconde o menu de tecnologias assistivas quando não está aberto
+          role="menu"
+          aria-orientation="vertical"
+          aria-hidden={!isOpen}
         >
           <li className={styles.menuItem}>
             <a
               href="#sobre"
               className={styles.menuLink}
               onClick={handleSmoothScroll}
-              aria-current={currentPath === '#sobre' ? 'page' : undefined} // Indica a página/seção atual
-              role="menuitem" // Indica que é um item de menu
+              aria-current={currentPath === '#sobre' ? 'page' : undefined}
+              role="menuitem"
             >
               Sobre Mim
             </a>

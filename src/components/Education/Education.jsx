@@ -1,4 +1,3 @@
-// src/components/Education/Education.jsx
 import React from 'react'
 import styles from './Education.module.css'
 

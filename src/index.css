@@ -1,26 +1,17 @@
-/* src/index.css */
+/* Este arquivo serve como ponto de entrada para estilos globais.
+ * Ele importa 'global.css' para estilos base e temas,
+ * mantendo este arquivo limpo e focado em configurações de nível superior.
+ */
 
-/* Este arquivo é o ponto de entrada para os estilos globais da sua aplicação.
-   Como estamos usando um arquivo global.css para gerenciar os estilos base e
-   temas, podemos manter este arquivo bem limpo e importar nosso global.css.
-   Outros estilos aqui devem ser usados com cautela para evitar conflitos
-   com os estilos modulares dos componentes. */
-
-/* Importe o seu arquivo de estilos globais */
+/* Importa o arquivo de estilos globais base do projeto. */
 @import './styles/global.css';
 
-/* Remova os estilos padrão do Vite/React que não são necessários */
+/* Estilos de nível raiz para o documento. */
 :root {
-  /* Font family já definido no global.css */
-  /* font-family: system-ui, Avenir, Helvetica, Arial, sans-serif; */
-  /* line-height já definido no global.css */
-  /* line-height: 1.5; */
-  /* font-weight já definido no global.css */
-  /* font-weight: 400; */
-
-  /* Color scheme pode ser relevante se você não controlar o tema completamente com CSS variables */
+  /* Font family, line-height e font-weight são definidos em 'global.css'. */
+  /* color-scheme pode ser mantido aqui para suporte nativo de temas. */
   color-scheme: light dark;
-  /* Cores padrão que serão sobrescritas pelas variáveis do tema */
+  /* Cores padrão, podem ser sobrescritas por variáveis de tema em 'global.css'. */
   color: rgba(255, 255, 255, 0.87);
   background-color: #242424;
 
@@ -30,35 +21,29 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* Estilos para links - movidos ou já cobertos no global.css */
+/* Estilos para links. Propriedades de texto e cor geral são do 'global.css'. */
 a {
-  /* font-weight: 500; */ /* Já pode estar no global.css */
-  color: inherit; /* Usamos inherit no global.css */
-  text-decoration: none; /* Usamos none no global.css */
+  color: inherit;
+  text-decoration: none;
 }
 
 a:hover {
-  color: #535bf2; /* Cor de hover específica, pode ser mantida ou usar uma variável do tema */
+  /* Cor de hover específica, pode ser mantida aqui ou movida para variáveis de tema. */
+  color: #535bf2;
 }
 
-/* Estilos para o body - já amplamente definidos no global.css */
+/* Estilos para o corpo da página (body).
+ * A maioria das propriedades base é definida em 'global.css'. */
 body {
   margin: 0;
   display: flex;
   place-items: center;
   min-width: 320px;
   min-height: 100vh;
-  /* background-color: var(--background-color); */ /* Já definido no global.css */
-  /* color: var(--text-color); */ /* Já definido no global.css */
 }
 
-/* Estilos para h1 - já definidos no global.css */
-/* h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
-} */
-
-/* Estilos para button - geralmente melhor definidos em um componente Button */
+/* Estilos para botões.
+ * Geralmente, é melhor ter um componente de botão com seus próprios estilos modulares. */
 button {
   border-radius: 8px;
   border: 1px solid transparent;
@@ -80,7 +65,7 @@ button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
 
-/* Media query para preferência de tema - geralmente controlado pelas variáveis CSS */
+/* Media query para tema claro, aplica estilos específicos se o usuário preferir. */
 @media (prefers-color-scheme: light) {
   :root {
     color: #213547;
@@ -94,5 +79,5 @@ button:focus-visible {
   }
 }
 
-/* Adicione aqui quaisquer estilos que realmente precisem ser globais
-   e não se encaixam bem no global.css (raramente necessário com a abordagem atual). */
+/* Este espaço pode ser usado para estilos globais que não se encaixam
+ * no 'global.css' (raramente necessário com esta arquitetura). */

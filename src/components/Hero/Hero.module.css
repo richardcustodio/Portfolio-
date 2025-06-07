@@ -1,22 +1,15 @@
-/* src/components/Hero/Hero.module.css */
 .hero {
-  /* Usando variáveis de tema para fundo e texto */
   background-color: var(--background-color);
   color: var(--text-color);
   padding: 4rem 0;
-  /* Usando variável de tema para borda */
   border-bottom: 1px solid var(--border-color);
   position: relative;
   overflow: hidden;
   transition:
     background-color 0.3s ease,
     color 0.3s ease,
-    border-color 0.3s ease; /* Transição para o tema */
+    border-color 0.3s ease;
 }
-
-/* O ThemeToggle será posicionado de forma absoluta dentro do Hero,
-   mas a classe .themeToggleContainer não é mais necessária no HTML se o ThemeToggle for o único elemento */
-/* Removendo a regra .hero > .themeToggleContainer */
 
 .container {
   display: flex;
@@ -33,7 +26,6 @@
   border-radius: 50%;
   overflow: hidden;
   margin-right: 2rem;
-  /* Usando variável de tema para sombra */
   box-shadow: 0 4px 8px var(--shadow-color);
 }
 
@@ -46,12 +38,12 @@
 .placeholderImage {
   width: 100%;
   height: 100%;
-  background-color: var(--border-color); /* Usando variável de tema */
+  background-color: var(--border-color);
   display: flex;
   justify-content: center;
   align-items: center;
   font-size: 1.5rem;
-  color: var(--text-light); /* Usando variável de tema */
+  color: var(--text-light);
 }
 
 .content {
@@ -61,40 +53,34 @@
 .name {
   font-size: 2.5rem;
   margin-bottom: 0.5rem;
-  /* Usando variável de tema para o título */
   color: var(--heading-color);
 }
 
 .title {
   font-size: 1.2rem;
-  /* Usando variável de tema para o texto mais claro */
   color: var(--text-light);
   margin-bottom: 1rem;
 }
 
 .description {
   line-height: 1.6;
-  /* Usando variável de tema para a descrição */
   color: var(--text-color);
   margin-bottom: 2rem;
 }
 
 .downloadButton {
   display: inline-block;
-  /* Usando variáveis de tema para o botão */
   background-color: var(--primary-color);
-  color: #ffffff; /* Cor de texto fixa, ou use uma variável se tiver uma específica para botões */
+  color: #ffffff;
   padding: 0.8rem 1.5rem;
   text-decoration: none;
   border-radius: 5px;
   font-weight: bold;
   transition: background-color 0.3s ease;
-  /* Usando variável de tema para sombra */
   box-shadow: 0 2px 4px var(--shadow-color);
 }
 
 .downloadButton:hover {
-  /* Usando variável de tema para o hover do botão */
   background-color: var(--secondary-color);
 }
 

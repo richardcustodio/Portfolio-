@@ -1,38 +1,40 @@
-/* src/styles/themes.css */
-
-/* Definição de Cores Base para o Tema Claro (Default) */
+/* Definição das variáveis de cores base para o Tema Claro (padrão). */
 :root {
-  --primary-color: #7b2cbf; /* Roxo Mais Claro - para destaque, botões, links */
-  --secondary-color: #5a189a; /* Roxo Claro - para elementos secundários */
-  --tertiary-color: #3c096c; /* Roxo Médio - para detalhes */
-  --highlight-color: #ffd500; /* Amarelo Dourado - para ênfase e hover */
+  /* Cores primárias e de destaque */
+  --primary-color: #7b2cbf; /* Roxo principal, para botões e links. */
+  --secondary-color: #5a189a; /* Roxo secundário, para elementos de suporte. */
+  --tertiary-color: #3c096c; /* Roxo médio, para detalhes. */
+  --highlight-color: #ffd500; /* Amarelo dourado, para ênfase e estados de hover. */
 
-  --text-color: #333333; /* Cor principal do texto (escuro) */
-  --text-light: #555555; /* Cor do texto mais claro (parágrafos, descrições) */
-  --heading-color: #10002b; /* Cor dos títulos (Roxo Escuro) */
+  /* Cores de texto */
+  --text-color: #333333; /* Cor principal do texto. */
+  --text-light: #555555; /* Cor para textos secundários ou descrições. */
+  --heading-color: #10002b; /* Cor para títulos. */
 
-  --background-color: #ffffff; /* Fundo principal claro */
-  --secondary-background-color: #f8f8f8; /* Fundo secundário claro (Navbar, Cards) */
-  --border-color: #dddddd; /* Cor da borda clara */
-  --shadow-color: rgba(0, 0, 0, 0.1); /* Cor da sombra clara */
+  /* Cores de fundo, bordas e sombras */
+  --background-color: #ffffff; /* Fundo principal claro. */
+  --secondary-background-color: #f8f8f8; /* Fundo secundário, para componentes como navbar ou cards. */
+  --border-color: #dddddd; /* Cor padrão para bordas. */
+  --shadow-color: rgba(0, 0, 0, 0.1); /* Cor para sombras leves. */
 
-  /* Cores específicas para o modo escuro, mas como variáveis que serão ativadas com a classe 'dark-mode' */
+  /* Cores específicas para o modo escuro, usadas como variáveis que serão ativadas pela classe 'dark-mode'. */
   --dark-primary-color: #7b2cbf;
   --dark-secondary-color: #5a189a;
   --dark-tertiary-color: #3c096c;
   --dark-highlight-color: #ffd500;
 
-  --dark-text-color: #f0f0f0; /* Cor principal do texto (claro) */
-  --dark-text-light: #cccccc; /* Cor do texto mais claro (parágrafos, descrições) */
-  --dark-heading-color: #f8f8f8; /* Cor dos títulos (claro) */
+  --dark-text-color: #f0f0f0; /* Texto principal em modo escuro. */
+  --dark-text-light: #cccccc; /* Texto secundário em modo escuro. */
+  --dark-heading-color: #f8f8f8; /* Títulos em modo escuro. */
 
-  --dark-background-color: #10002b; /* Fundo principal escuro (Roxo Escuro) */
-  --dark-secondary-background-color: #240046; /* Fundo secundário escuro (Roxo Médio Escuro) */
-  --dark-border-color: #444444; /* Cor da borda escura */
-  --dark-shadow-color: rgba(0, 0, 0, 0.4); /* Cor da sombra escura */
+  --dark-background-color: #10002b; /* Fundo principal escuro. */
+  --dark-secondary-background-color: #240046; /* Fundo secundário escuro. */
+  --dark-border-color: #444444; /* Borda em modo escuro. */
+  --dark-shadow-color: rgba(0, 0, 0, 0.4); /* Sombra em modo escuro. */
 }
 
-/* Definição de Cores para o Tema Escuro (ativado pela classe 'dark-mode' no <html>) */
+/* Definição das variáveis de cores para o Tema Escuro.
+ * Ativado quando a classe 'dark-mode' é aplicada ao elemento <html>. */
 html.dark-mode {
   --primary-color: var(--dark-primary-color);
   --secondary-color: var(--dark-secondary-color);

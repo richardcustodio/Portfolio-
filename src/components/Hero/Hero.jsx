@@ -1,10 +1,8 @@
-// src/components/Hero/Hero.jsx
 import React from 'react'
 import styles from './Hero.module.css'
-import profileImage from '/images/profile/profile.jpg' // Certifique-se de que este caminho está correto
+import profileImage from '/images/profile/profile.jpg'
 import ThemeToggle from '../ThemeToggle/ThemeToggle'
 
-// Hero agora recebe 'theme' e 'toggleTheme' como props
 function Hero({ theme, toggleTheme }) {
   return (
     <section className={styles.hero} aria-label="Seção de Introdução e Apresentação do Portfólio">
@@ -14,7 +12,7 @@ function Hero({ theme, toggleTheme }) {
         <div className={styles.imageContainer}>
           <img
             src={profileImage}
-            alt="Foto de perfil de Richard Custodio Batista Quadra" // Alt text mais descritivo
+            alt="Foto de perfil de Richard Custodio Batista Quadra"
             className={styles.profileImage}
           />
         </div>
@@ -31,7 +29,7 @@ function Hero({ theme, toggleTheme }) {
             href="/cv/Curriculo.pdf"
             download
             className={styles.downloadButton}
-            aria-label="Baixar Currículo em formato PDF" // Adicionado aria-label para o botão de download
+            aria-label="Baixar Currículo em formato PDF"
           >
             Baixar Currículo
           </a>

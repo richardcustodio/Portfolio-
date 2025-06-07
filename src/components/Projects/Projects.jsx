@@ -1,4 +1,3 @@
-// src/components/Projects/Projects.jsx
 import React from 'react'
 import styles from './Projects.module.css'
 import ProjectCard from './ProjectCard'
@@ -12,7 +11,7 @@ function Projects() {
       techStack: ['HTML', 'CSS', 'JavaScript', 'React.js'],
       githubLink: 'https://github.com/richardcustodio/Busca-de-Perfil-no-GitHub',
       liveDemoLink: 'https://projeto1.seudominio.com',
-      image: '/images/image_projects/Busca_de_perfil_no_Github.jpg', // Caminho para a imagem do projeto (na pasta public/images/)
+      image: '/images/image_projects/Busca_de_perfil_no_Github.jpg',
     },
     {
       title: 'AVANTI - Loja de Roupas Online',
@@ -67,8 +66,8 @@ function Projects() {
             <ProjectCard
               key={index}
               project={project}
-              data-aos="fade-up" // Animação de entrada para cada card de projeto
-              data-aos-delay={`${index * 150}`} // Atraso incremental para um efeito de grade
+              data-aos="fade-up"
+              data-aos-delay={`${index * 150}`}
             />
           ))}
         </div>

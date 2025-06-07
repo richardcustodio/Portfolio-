@@ -1,18 +1,17 @@
-/* src/components/ThemeToggle/ThemeToggle.module.css */
 .themeToggleButton {
   background: none;
   border: none;
   cursor: pointer;
-  font-size: 1.5rem; /* Ajuste o tamanho do ícone */
-  color: var(--text-color); /* A cor do ícone muda com o tema */
+  font-size: 1.5rem;
+  color: var(--text-color);
   transition:
     color 0.3s ease,
     transform 0.2s ease;
-  padding: 0.5rem; /* Adiciona um pouco de padding para facilitar o clique */
+  padding: 0.5rem;
 }
 
 .themeToggleButton:hover {
-  color: var(--primary-color); /* Cor de destaque no hover */
+  color: var(--primary-color);
   transform: scale(1.1);
 }
 

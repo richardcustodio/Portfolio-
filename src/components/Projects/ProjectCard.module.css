@@ -1,12 +1,9 @@
-/* src/components/Projects/ProjectCard.module.css */
 .projectCard {
-  /* Usando variáveis de tema para fundo, sombra e borda */
-  background-color: var(--secondary-background-color); /* Fundo do card */
+  background-color: var(--secondary-background-color);
   box-shadow: 0 4px 8px var(--shadow-color);
-  border: 1px solid var(--border-color); /* Adiciona uma borda sutil para contraste */
+  border: 1px solid var(--border-color);
   border-radius: 8px;
   overflow: hidden;
-  /* Transições suaves para todas as propriedades de cor/sombra */
   transition:
     transform 0.3s ease,
     background-color 0.3s ease,
@@ -16,8 +13,7 @@
 
 .projectCard:hover {
   transform: translateY(-5px);
-  /* Sombra mais pronunciada no hover */
-  box-shadow: 0 6px 12px var(--shadow-color-hover); /* Usando uma variável para hover */
+  box-shadow: 0 6px 12px var(--shadow-color-hover);
 }
 
 .imageContainer {
@@ -38,14 +34,12 @@
 
 .projectTitle {
   font-size: 1.5rem;
-  /* Usando variável de tema para o título do projeto */
   color: var(--heading-color);
   margin-bottom: 0.5rem;
   transition: color 0.3s ease;
 }
 
 .projectDescription {
-  /* Usando variável de tema para a descrição do projeto */
   color: var(--text-color);
   line-height: 1.6;
   margin-bottom: 1rem;
@@ -63,9 +57,8 @@
 }
 
 .techStack li {
-  /* Usando variáveis de tema para as tags de tecnologia */
-  background-color: var(--primary-color-light); /* Uma cor clara ou pastel do tema principal */
-  color: var(--primary-color-dark); /* Cor de texto que contrasta com a tag */
+  background-color: var(--primary-color-light);
+  color: var(--primary-color-dark);
   padding: 0.3rem 0.6rem;
   border-radius: 5px;
   font-size: 0.8rem;
@@ -83,9 +76,8 @@
   display: inline-flex;
   align-items: center;
   gap: 0.3rem;
-  /* Usando variáveis de tema para os botões de link */
   background-color: var(--primary-color);
-  color: #ffffff; /* Texto branco para alto contraste */
+  color: #ffffff;
   padding: 0.6rem 1rem;
   text-decoration: none;
   border-radius: 5px;
@@ -94,8 +86,7 @@
 }
 
 .linkButton:hover {
-  /* Usando variável de tema para o hover do botão */
-  background-color: var(--secondary-color); /* Roxo mais escuro ou cor de destaque */
+  background-color: var(--secondary-color);
 }
 
 /* Media Queries para Responsividade */

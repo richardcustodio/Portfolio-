@@ -1,27 +1,24 @@
-// src/components/ProjectCard/ProjectCard.jsx
 import React from 'react'
 import styles from './ProjectCard.module.css'
 import { FaGithub, FaExternalLinkAlt } from 'react-icons/fa'
 
 function ProjectCard({ project }) {
-  // Gerar um ID único para o título do projeto para uso com aria-labelledby
-  // Isso é importante para que cada card seja rotulado de forma única.
   const projectId = `project-title-${project.id || project.title.replace(/\s+/g, '-').toLowerCase()}`
 
   return (
     <div
       className={styles.projectCard}
       aria-labelledby={projectId}
-      data-aos="zoom-in-up" // Animação de entrada para o card inteiro
-      data-aos-duration="800" // Duração da animação
+      data-aos="zoom-in-up"
+      data-aos-duration="800"
     >
       {project.image && (
         <div className={styles.imageContainer}>
           <img
             src={project.image}
-            alt={`Imagem de demonstração do projeto: ${project.title}`} // Alt text mais descritivo
+            alt={`Imagem de demonstração do projeto: ${project.title}`}
             className={styles.projectImage}
-            loading="lazy" // <--- Atributo de lazy loading nativo
+            loading="lazy"
           />
         </div>
       )}
@@ -30,15 +27,14 @@ function ProjectCard({ project }) {
           {project.title}
         </h3>
         <p className={styles.projectDescription}>{project.description}</p>
-        {project.techStack &&
-          project.techStack.length > 0 && ( // Verifica se há techStack antes de renderizar
-            <ul className={styles.techStack} aria-label="Tecnologias utilizadas no projeto">
-              {/* Adicionado aria-label para a lista de tecnologias */}
-              {project.techStack.map((tech, index) => (
-                <li key={index}>{tech}</li>
-              ))}
-            </ul>
-          )}
+        {project.techStack && project.techStack.length > 0 && (
+          <ul className={styles.techStack} aria-label="Tecnologias utilizadas no projeto">
+            {/* Adicionado aria-label para a lista de tecnologias */}
+            {project.techStack.map((tech, index) => (
+              <li key={index}>{tech}</li>
+            ))}
+          </ul>
+        )}
         <div className={styles.links}>
           {project.githubLink && (
             <a

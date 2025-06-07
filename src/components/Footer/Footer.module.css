@@ -1,15 +1,11 @@
-/* src/components/Footer/Footer.module.css */
 .footer {
-  /* Usando variáveis de tema para o fundo e cor do texto do rodapé */
-  background-color: var(
-    --header-footer-background
-  ); /* Uma variável específica para cabeçalho e rodapé */
-  color: var(--header-footer-text); /* Cor do texto para cabeçalho e rodapé */
+  background-color: var(--header-footer-background);
+  color: var(--header-footer-text);
   padding: 2rem 0;
   text-align: center;
   transition:
     background-color 0.3s ease,
-    color 0.3s ease; /* Transição suave para o tema */
+    color 0.3s ease;
 }
 
 .container {
@@ -21,7 +17,6 @@
 .copyright {
   font-size: 0.9rem;
   margin-bottom: 0.5rem;
-  /* Garante que o texto de copyright também transicione */
   transition: color 0.3s ease;
 }
 
@@ -35,7 +30,6 @@
 }
 
 .footerLinks li a {
-  /* Usando variável de tema para a cor dos links no rodapé */
   color: var(--header-footer-text);
   text-decoration: none;
   font-size: 0.9rem;
@@ -43,7 +37,6 @@
 }
 
 .footerLinks li a:hover {
-  /* Usando variável de tema para o hover dos links */
   color: var(--primary-color);
 }
 

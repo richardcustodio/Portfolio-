@@ -1,11 +1,8 @@
-/* src/components/Education/Education.module.css */
 .education {
   padding: 4rem 0;
   /* Usando variável de tema para o fundo da seção */
-  background-color: var(
-    --background-color
-  ); /* Fundo principal, ou secondary se preferir um leve contraste */
-  transition: background-color 0.3s ease; /* Transição suave para o tema */
+  background-color: var(--background-color);
+  transition: background-color 0.3s ease;
 }
 
 .container {
@@ -20,7 +17,7 @@
   /* Usando variável de tema para o título da seção */
   color: var(--heading-color);
   margin-bottom: 2rem;
-  transition: color 0.3s ease; /* Transição suave para o tema */
+  transition: color 0.3s ease;
 }
 
 .timeline {
@@ -39,7 +36,7 @@
   /* Usando variável de tema para a cor da linha */
   background-color: var(--border-color);
   transform: translateX(-50%);
-  transition: background-color 0.3s ease; /* Transição suave para o tema */
+  transition: background-color 0.3s ease;
 }
 
 .timelineItem {
@@ -54,21 +51,21 @@
   transform: translateX(-50%);
   /* Usando variáveis de tema para fundo e cor do texto do ano */
   background-color: var(--primary-color);
-  color: #ffffff; /* Cor branca para o texto sobre o roxo */
+  color: #ffffff;
   padding: 0.5rem 1rem;
   border-radius: 5px;
   z-index: 1;
   font-size: 0.9rem;
   transition:
     background-color 0.3s ease,
-    color 0.3s ease; /* Transição suave para o tema */
+    color 0.3s ease;
 }
 
 .timelineContent {
   width: 45%;
   padding: 1rem;
   /* Usando variáveis de tema para fundo, sombra e transição do conteúdo */
-  background-color: var(--secondary-background-color); /* Fundo dos cards de conteúdo */
+  background-color: var(--secondary-background-color);
   box-shadow: 0 2px 4px var(--shadow-color);
   border-radius: 5px;
   font-size: 0.9rem;
@@ -100,7 +97,7 @@
   left: 50%;
   transform: translateX(-50%);
   z-index: 2;
-  transition: background-color 0.3s ease; /* Transição suave para o tema */
+  transition: background-color 0.3s ease;
 }
 
 .degree {
@@ -108,7 +105,7 @@
   /* Usando variável de tema para a cor do grau/curso */
   color: var(--heading-color);
   margin-bottom: 0.5rem;
-  transition: color 0.3s ease; /* Transição suave para o tema */
+  transition: color 0.3s ease;
 }
 
 .institution {
@@ -117,7 +114,7 @@
   margin-bottom: 0.5rem;
   font-style: italic;
   font-size: 0.85rem;
-  transition: color 0.3s ease; /* Transição suave para o tema */
+  transition: color 0.3s ease;
 }
 
 .description {
@@ -125,7 +122,7 @@
   color: var(--text-color);
   line-height: 1.6;
   font-size: 0.85rem;
-  transition: color 0.3s ease; /* Transição suave para o tema */
+  transition: color 0.3s ease;
 }
 
 /* Media Queries para Responsividade */

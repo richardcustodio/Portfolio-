@@ -1,5 +1,3 @@
-/* src/styles/global.css */
-
 /* Reset CSS (Mais básico e remove mais estilos padrão) */
 html,
 body,
@@ -156,7 +154,7 @@ a {
 
 /* Para links com destaque, você pode criar uma classe ou usar diretamente a variável */
 a:hover {
-  color: var(--highlight-color); /* Amarelo dourado no hover para destaque */
+  color: var(--highlight-color);
 }
 
 h1,
@@ -170,7 +168,7 @@ h6 {
   margin-bottom: 1rem;
   /* Usando a variável de tema para a cor dos títulos */
   color: var(--heading-color);
-  transition: color 0.3s ease; /* Transição para a cor do título */
+  transition: color 0.3s ease;
 }
 
 h1 {
@@ -202,7 +200,7 @@ p {
   margin-bottom: 1.05rem;
   /* Usando a variável de tema para a cor dos parágrafos */
   color: var(--text-color);
-  transition: color 0.3s ease; /* Transição para a cor do parágrafo */
+  transition: color 0.3s ease;
 }
 
 /* Classes Utilitárias Globais (mantidas e ajustadas) */

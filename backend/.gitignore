@@ -1,14 +1,16 @@
-# backend/.gitignore
-
-# Node modules do backend
+# Módulos de dependências do backend
+# Ignora a pasta 'node_modules', que contém as dependências instaladas do backend.
 node_modules/
 
 # Variáveis de ambiente do backend
+# Garante que arquivos de variáveis de ambiente locais não sejam versionados no Git,
+# protegendo informações sensíveis.
 .env
 .env.local
 .env.*.local
 
-# Logs gerados pelo backend (se houver)
+# Logs gerados pelo backend
+# Ignora arquivos de log gerados por scripts ou ferramentas do Node.js/Yarn/pnpm.
 npm-debug.log*
 yarn-debug.log*
 *.log

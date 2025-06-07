@@ -1,5 +1,6 @@
 # Logs
-logs
+# Ignora arquivos de log gerados por diversas ferramentas e pelo sistema.
+logs/
 *.log
 npm-debug.log*
 yarn-debug.log*
@@ -7,15 +8,21 @@ yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
 
-node_modules
-dist
-dist-ssr
+# Módulos de dependências do Node.js
+# Ignora a pasta 'node_modules', que contém as dependências do projeto.
+node_modules/
+
+# Saída da compilação e arquivos temporários do frontend
+# Ignora as pastas de build e arquivos locais/temporários.
+dist/
+dist-ssr/
 *.local
 
-# Editor directories and files
-.vscode/*
-!.vscode/extensions.json
-.idea
+# Diretórios e arquivos de configuração de editores/IDEs
+# Ignora arquivos específicos de editores (VS Code, IntelliJ IDEA) e do sistema.
+.vscode/
+!.vscode/extensions.json # Mantém o arquivo de extensões recomendadas do VS Code.
+.idea/
 .DS_Store
 *.suo
 *.ntvs*
@@ -23,5 +30,6 @@ dist-ssr
 *.sln
 *.sw?
 
-# Backend .env file
+# Variáveis de ambiente do backend
+# Garante que o arquivo .env específico da pasta 'backend' não seja versionado.
 /backend/.env

@@ -1,11 +1,7 @@
-/* src/components/Skills/Skills.module.css */
 .skills {
   padding: 4rem 0;
-  /* Usando variáveis de tema para fundo e transição */
-  background-color: var(
-    --secondary-background-color
-  ); /* Fundo secundário para seções, ou primary-background-color se desejar */
-  transition: background-color 0.3s ease; /* Transição suave para o tema */
+  background-color: var(--secondary-background-color);
+  transition: background-color 0.3s ease;
 }
 
 .container {
@@ -17,10 +13,9 @@
 
 .title {
   font-size: 2rem;
-  /* Usando variável de tema para o título da seção */
   color: var(--heading-color);
   margin-bottom: 2rem;
-  transition: color 0.3s ease; /* Transição suave para o tema */
+  transition: color 0.3s ease;
 }
 
 .skillsList {
@@ -38,9 +33,8 @@
   flex-direction: column;
   align-items: center;
   padding: 1rem;
-  /* Usando variáveis de tema para borda, fundo, sombra e transição do item */
   border: 1px solid var(--border-color);
-  background-color: var(--background-color); /* Fundo do card de habilidade */
+  background-color: var(--background-color);
   border-radius: 5px;
   width: 120px;
   transition:
@@ -52,15 +46,13 @@
 
 .skillItem:hover {
   transform: translateY(-5px);
-  /* Usando variável de tema para sombra no hover */
   box-shadow: 0 4px 8px var(--shadow-color);
 }
 
 .skillIcon {
   margin-bottom: 0.5rem;
-  /* Usando variável de tema para a cor dos ícones */
   color: var(--primary-color);
-  transition: color 0.3s ease; /* Transição suave para o tema */
+  transition: color 0.3s ease;
 }
 
 .skillIcon svg {
@@ -69,18 +61,16 @@
 
 .skillName {
   font-weight: bold;
-  /* Usando variável de tema para o nome da habilidade */
   color: var(--heading-color);
   margin-bottom: 0.2rem;
   font-size: 0.9rem;
-  transition: color 0.3s ease; /* Transição suave para o tema */
+  transition: color 0.3s ease;
 }
 
 .proficiency {
   font-size: 0.8rem;
-  /* Usando variável de tema para o texto de proficiência */
   color: var(--text-light);
-  transition: color 0.3s ease; /* Transição suave para o tema */
+  transition: color 0.3s ease;
 }
 
 /* Media Queries para Responsividade */

@@ -1,33 +1,29 @@
-// src/App.jsx
 import React, { useEffect } from 'react'
-import AOS from 'aos'
-import 'aos/dist/aos.css'
-import Home from './pages/Home'
-import './styles/global.css'
-import './styles/themes.css'
-import useTheme from './hooks/useTheme'
+import AOS from 'aos' // Biblioteca para animações de rolagem
+import 'aos/dist/aos.css' // Estilos do AOS
+import Home from './pages/Home' // Componente principal da página
+import './styles/global.css' // Estilos globais
+import './styles/themes.css' // Estilos de tema
+import useTheme from './hooks/useTheme' // Hook personalizado para gerenciamento de tema
 
 function App() {
-  const [theme, toggleTheme] = useTheme() // Usa o hook para gerenciar o tema
+  const [theme, toggleTheme] = useTheme() // Gerencia o estado do tema e a função para alterná-lo
 
-  // Inicializa o AOS quando o componente App é montado
+  // Inicializa a biblioteca AOS para animações ao carregar o componente.
   useEffect(() => {
     AOS.init({
-      // Definições globais para as animações
-      duration: 1000, // Duração padrão das animações em milissegundos
-      easing: 'ease-in-out', // Tipo de easing para as animações (suavidade)
-      once: true, // Se true, a animação só ocorre uma vez ao rolar para baixo
-      mirror: false, // Se true, a animação acontece novamente ao rolar para cima
+      duration: 1000, // Duração padrão das animações em milissegundos.
+      easing: 'ease-in-out', // Suavidade da animação.
+      once: true, // Animação ocorre apenas uma vez ao rolar para baixo.
+      mirror: false, // Animação não se repete ao rolar para cima.
     })
-    // Força uma atualização do AOS para garantir que ele detecte todos os elementos
-    // especialmente útil se o conteúdo for carregado dinamicamente
+    // Força uma atualização do AOS para garantir que todos os elementos sejam detectados.
     AOS.refresh()
-  }, []) // O array vazio [] garante que este efeito seja executado apenas uma vez, no montagem do componente
+  }, []) // O efeito executa apenas uma vez na montagem do componente.
 
   return (
-    // Passa 'theme' e 'toggleTheme' para o componente Home
-    // Home é o contêiner das seções, então ele repassará para Hero
     <div>
+      {/* Renderiza o componente Home, passando o tema atual e a função de alternância. */}
       <Home theme={theme} toggleTheme={toggleTheme} />
     </div>
   )
