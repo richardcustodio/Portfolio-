@@ -1,121 +1,150 @@
 // src/components/Contact/Contact.jsx
-import React, { useState } from 'react'
-import styles from './Contact.module.css'
-import { FaLinkedin, FaGithub, FaEnvelope, FaCopy } from 'react-icons/fa'
+import React, { useState, useEffect } from 'react'; // Adicionei useEffect aqui
+import styles from './Contact.module.css';
+import { FaLinkedin, FaGithub, FaEnvelope, FaCopy } from 'react-icons/fa';
 
 function Contact() {
-  const [name, setName] = useState('')
-  const [email, setEmail] = useState('')
-  const [message, setMessage] = useState('')
-  const [errors, setErrors] = useState({})
-  const [copySuccess, setCopySuccess] = useState('')
-  const [formMessage, setFormMessage] = useState({ text: '', type: '' })
-  const [isSubmitting, setIsSubmitting] = useState(false)
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
+  const [message, setMessage] = useState('');
+  const [errors, setErrors] = useState({});
+  const [copySuccess, setCopySuccess] = useState('');
+  const [formMessage, setFormMessage] = useState({ text: '', type: '' });
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const myEmail = 'rc.custodio078@outlook.com'
+  // --- NOVA VARIÁVEL DE ESTADO PARA DESATIVAR O FORMULÁRIO ---
+  const [formDisabled, setFormDisabled] = useState(true); // Começa como true (desabilitado)
+
+  const myEmail = 'rc.custodio078@outlook.com';
+
+  // Use useEffect para definir a mensagem inicial quando o componente montar
+  useEffect(() => {
+    if (formDisabled) {
+      setFormMessage({
+        text: 'No momento, o envio de mensagens está temporariamente indisponível. Por favor, use os links diretos para contato.',
+        type: 'info' // Um novo tipo 'info' para indicar que é um aviso, não um erro
+      });
+    }
+  }, [formDisabled]); // Este efeito roda uma vez quando formDisabled muda para true
 
   const validateForm = () => {
-    let isValid = true
-    const newErrors = {}
+    let isValid = true;
+    const newErrors = {};
 
     if (!name.trim()) {
-      newErrors.name = 'O nome é obrigatório.'
-      isValid = false
+      newErrors.name = 'O nome é obrigatório.';
+      isValid = false;
     }
 
     if (!email.trim()) {
-      newErrors.email = 'O e-mail é obrigatório.'
-      isValid = false
+      newErrors.email = 'O e-mail é obrigatório.';
+      isValid = false;
     } else if (!/\S+@\S+\.\S+/.test(email)) {
-      newErrors.email = 'E-mail inválido.'
-      isValid = false
+      newErrors.email = 'E-mail inválido.';
+      isValid = false;
     }
 
     if (!message.trim()) {
-      newErrors.message = 'A mensagem é obrigatória.'
-      isValid = false
+      newErrors.message = 'A mensagem é obrigatória.';
+      isValid = false;
     }
 
-    setErrors(newErrors)
-    return isValid
-  }
+    setErrors(newErrors);
+    return isValid;
+  };
 
   const handleSubmit = async (event) => {
-    event.preventDefault()
-    // Limpa mensagens e erros anteriores ao tentar um novo envio
-    setFormMessage({ text: '', type: '' })
-    setErrors({})
+    event.preventDefault();
+
+    // --- BLOQUEIO AQUI: Se o formulário estiver desabilitado, não faz nada ---
+    if (formDisabled) {
+      setFormMessage({
+        text: 'O envio de mensagens está desabilitado no momento. Use os links abaixo.',
+        type: 'info'
+      });
+      return; // Impede que o restante da função seja executado
+    }
+
+    // O código abaixo só seria executado se formDisabled fosse 'false'
+    setFormMessage({ text: '', type: '' });
+    setErrors({});
 
     if (!validateForm()) {
       setFormMessage({
         text: 'Por favor, preencha todos os campos obrigatórios corretamente.',
         type: 'error',
-      })
-      return
+      });
+      return;
     }
 
-    setIsSubmitting(true) // Desabilita o botão e mostra "Enviando..."
+    setIsSubmitting(true);
 
     try {
-      // --- INÍCIO DAS ALTERAÇÕES NA FUNÇÃO handleSubmit ---
-      // Esta é a chamada real para o seu backend Node.js
-      const response = await fetch('http://localhost:5000/api/contact', {
-        // <--- URL do seu backend
+      // Este bloco de código de envio ao backend NÃO SERÁ ALCANÇADO
+      // enquanto 'formDisabled' for 'true'.
+      // Deixei o código comentado como exemplo de como reativar no futuro.
+      /*
+      const backendUrl = import.meta.env.MODE === 'production'
+        ? import.meta.env.VITE_BACKEND_URL
+        : 'http://localhost:5000/send-email';
+
+      const response = await fetch(backendUrl, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ name, email, message }), // Envia os dados como JSON
-      })
+        body: JSON.stringify({ name, email, message }),
+      });
 
-      const data = await response.json() // Espera e parseia a resposta JSON do backend
+      const data = await response.json();
 
       if (response.ok) {
-        // Se a resposta HTTP for 2xx (sucesso)
         setFormMessage({
-          text: data.message, // Usa a mensagem de sucesso enviada pelo backend
+          text: data.message || 'Mensagem enviada com sucesso! Em breve entrarei em contato.',
           type: 'success',
-        })
-        // Limpa os campos do formulário apenas em caso de sucesso
-        setName('')
-        setEmail('')
-        setMessage('')
+        });
+        setName('');
+        setEmail('');
+        setMessage('');
       } else {
-        // Se a resposta HTTP for um erro (ex: 400, 500)
         setFormMessage({
-          text: data.error || 'Ocorreu um erro desconhecido. Tente novamente.', // Usa a mensagem de erro do backend ou uma genérica
+          text: data.error || 'Ocorreu um erro desconhecido ao enviar a mensagem. Tente novamente.',
           type: 'error',
-        })
+        });
       }
-      // --- FIM DAS ALTERAÇÕES NA FUNÇÃO handleSubmit ---
-    } catch (error) {
-      // Este catch pega erros de rede, como o backend não estar rodando ou conexão recusada
-      console.error('Erro ao enviar o formulário ou conectar ao servidor:', error)
+      */
+      // Se não estamos enviando, simulamos um sucesso imediato ou uma falha controlada
+      // para que a mensagem de "desabilitado" persista.
       setFormMessage({
-        text: 'Não foi possível conectar ao servidor. Por favor, tente novamente mais tarde.',
+        text: 'O envio de mensagens está desabilitado no momento. Por favor, use os links diretos para contato.',
+        type: 'info'
+      });
+
+
+    } catch (error) {
+      console.error('Erro (simulado) ao enviar o formulário:', error);
+      setFormMessage({
+        text: 'Não foi possível enviar a mensagem no momento.',
         type: 'error',
-      })
+      });
     } finally {
-      setIsSubmitting(false) // Habilita o botão novamente, independentemente do resultado
-      // A mensagem de sucesso some após 5 segundos, a de erro permanece até nova tentativa
-      if (formMessage.type === 'success') {
-        // Correção importante: esta condição deve ser avaliada após o setState,
-        // mas a lógica está ok, `formMessage.type` irá refletir o estado antes do timeout.
-        setTimeout(() => setFormMessage({ text: '', type: '' }), 5000)
-      }
+      setIsSubmitting(false);
+      // Remove o timeout para mensagens de sucesso, já que não haverá sucesso real
+      // e a mensagem de "info" deve persistir
+      // setTimeout(() => setFormMessage({ text: '', type: '' }), 5000);
     }
-  }
+  };
 
   const copyToClipboard = async () => {
     try {
-      await navigator.clipboard.writeText(myEmail)
-      setCopySuccess('Copiado!')
-      setTimeout(() => setCopySuccess(''), 2000)
+      await navigator.clipboard.writeText(myEmail);
+      setCopySuccess('Copiado!');
+      setTimeout(() => setCopySuccess(''), 2000);
     } catch (err) {
-      setCopySuccess('Falha ao copiar!')
-      console.error('Falha ao copiar texto: ', err)
+      setCopySuccess('Falha ao copiar!');
+      console.error('Falha ao copiar texto: ', err);
     }
-  }
+  };
 
   return (
     <section
@@ -135,6 +164,7 @@ function Contact() {
             data-aos="fade-right"
             data-aos-duration="1000"
           >
+            {/* Mensagem de Feedback do Formulário */}
             {formMessage.text && (
               <p
                 className={`${styles.formFeedback} ${styles[formMessage.type]}`}
@@ -144,6 +174,7 @@ function Contact() {
                 {formMessage.text}
               </p>
             )}
+            {/* Campos do Formulário - Desabilitados se formDisabled for true */}
             <div className={styles.formGroup} data-aos="fade-right" data-aos-delay="100">
               <label htmlFor="name" className={styles.label}>
                 Nome:
@@ -157,6 +188,7 @@ function Contact() {
                 aria-required="true"
                 aria-invalid={errors.name ? 'true' : 'false'}
                 aria-describedby={errors.name ? 'error-name' : undefined}
+                disabled={formDisabled} // Desabilita o campo
               />
               {errors.name && (
                 <p id="error-name" className={styles.errorMessage}>
@@ -177,6 +209,7 @@ function Contact() {
                 aria-required="true"
                 aria-invalid={errors.email ? 'true' : 'false'}
                 aria-describedby={errors.email ? 'error-email' : undefined}
+                disabled={formDisabled} // Desabilita o campo
               />
               {errors.email && (
                 <p id="error-email" className={styles.errorMessage}>
@@ -196,6 +229,7 @@ function Contact() {
                 aria-required="true"
                 aria-invalid={errors.message ? 'true' : 'false'}
                 aria-describedby={errors.message ? 'error-message' : undefined}
+                disabled={formDisabled} // Desabilita o campo
               />
               {errors.message && (
                 <p id="error-message" className={styles.errorMessage}>
@@ -206,14 +240,18 @@ function Contact() {
             <button
               type="submit"
               className={styles.submitButton}
-              disabled={isSubmitting}
+              disabled={isSubmitting || formDisabled} // Desabilita o botão se já estiver enviando OU se o form estiver desabilitado
               aria-label={
-                isSubmitting ? 'Enviando sua mensagem, por favor aguarde' : 'Enviar Mensagem'
+                isSubmitting
+                  ? 'Enviando sua mensagem, por favor aguarde'
+                  : formDisabled
+                    ? 'Envio de mensagem desabilitado' // Texto quando desabilitado
+                    : 'Enviar Mensagem'
               }
               data-aos="zoom-in"
               data-aos-delay="400"
             >
-              {isSubmitting ? 'Enviando...' : 'Enviar Mensagem'}
+              {isSubmitting ? 'Enviando...' : formDisabled ? 'Temporariamente Indisponível' : 'Enviar Mensagem'}
             </button>
           </form>
           <div className={styles.contactInfo} data-aos="fade-left" data-aos-duration="1000">
@@ -268,7 +306,7 @@ function Contact() {
         </div>
       </div>
     </section>
-  )
+  );
 }
 
-export default Contact
+export default Contact;

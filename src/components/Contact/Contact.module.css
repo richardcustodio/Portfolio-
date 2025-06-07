@@ -170,6 +170,12 @@
   white-space: nowrap; /* Impede que a mensagem quebre a linha */
 }
 
+.formFeedback.info {
+  background-color: #e0f2f7; /* Um azul claro */
+  color: #007bff; /* Cor do texto azul */
+  border: 1px solid #b3e0ff;
+}
+
 @keyframes fadeOut {
   0% {
     opacity: 1;
