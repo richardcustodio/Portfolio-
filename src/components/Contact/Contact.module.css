@@ -55,7 +55,7 @@
 .input,
 .textarea {
   /* Mantido 100% da largura, o padding interno já gerencia o espaço */
-  width: 100%;
+  width: 95%;
   padding: 0.8rem;
   border: 1px solid var(--border-color);
   background-color: var(--input-background-color);
